@@ -88,8 +88,8 @@ void setup() {
   pinMode(limit2, INPUT);
   //attachInterrupt (0, isr0, LOW);
   
-  attachInterrupt(digitalPinToInterrupt(2), upCallback, mode);
-  attachInterrupt(digitalPinToInterrupt(3), downCallback, mode);
+  attachInterrupt(digitalPinToInterrupt(clk), upCallback, mode);
+  attachInterrupt(digitalPinToInterrupt(dt), downCallback, mode);
   mode = 0;
   arrow = 0;
   rpm = 100;
