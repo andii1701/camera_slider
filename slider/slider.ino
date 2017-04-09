@@ -61,15 +61,24 @@ void isr0 ()  {
   up = (digitalRead(clk) == digitalRead(dt));
 }
 
+void upCallback ()  {
+  TurnDetected = true;
+  up = true;
+}
+
+void downCallback ()  {
+  TurnDetected = true;
+  up = false;
+}
+
 void setup() {
-  //lcd.init();
-  //lcd.backlight();
+    Serial.begin(9600);
+  while (!Serial);             // Leonardo: wait for serial monitor
   lcd.begin(16, 2);
   // Switch on the backlight
   lcd.setBacklightPin(BACKLIGHT_PIN,POSITIVE);
   lcd.setBacklight(HIGH);
   lcd.home (); // go home
-  //lcd.print("Hello, ARDUINO ");  
   lcd.createChar(0, customChar1);
   lcd.createChar(1, customChar2);
   pinMode(clk, INPUT);
@@ -77,7 +86,10 @@ void setup() {
   pinMode(sw, INPUT);
   pinMode(limit1, INPUT);
   pinMode(limit2, INPUT);
-  attachInterrupt (0, isr0, RISING);
+  //attachInterrupt (0, isr0, LOW);
+  
+  attachInterrupt(digitalPinToInterrupt(2), upCallback, mode);
+  attachInterrupt(digitalPinToInterrupt(3), downCallback, mode);
   mode = 0;
   arrow = 0;
   rpm = 100;
