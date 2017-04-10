@@ -72,8 +72,6 @@ void downCallback ()  {
 }
 
 void setup() {
-    Serial.begin(9600);
-  while (!Serial);             // Leonardo: wait for serial monitor
   lcd.begin(16, 2);
   // Switch on the backlight
   lcd.setBacklightPin(BACKLIGHT_PIN,POSITIVE);
@@ -88,15 +86,15 @@ void setup() {
   pinMode(limit2, INPUT);
   //attachInterrupt (0, isr0, LOW);
   
-  attachInterrupt(digitalPinToInterrupt(clk), upCallback, mode);
-  attachInterrupt(digitalPinToInterrupt(dt), downCallback, mode);
+  attachInterrupt(digitalPinToInterrupt(clk), upCallback, LOW);
+  attachInterrupt(digitalPinToInterrupt(dt), downCallback, LOW);
   mode = 0;
   arrow = 0;
   rpm = 100;
   dir = 0;
   minutes = 1;
   minrpm = 100;
-  stepper.setMicrostep(8);
+  stepper.setMicrostep(1);
 }
 
 void loop() {
@@ -277,21 +275,21 @@ void loop() {
     while (!TurnDetected && (digitalRead(sw)) && (digitalRead(limit1)) && (digitalRead(limit2))) {
       stepper.setRPM(rpm);
       if (dir == 0) {
-        stepper.rotate(-1);
+        stepper.rotate(-2);
       }
       else {
-        stepper.rotate(1);
+        stepper.rotate(2);
       }
     }
 
     if (!(digitalRead(limit1))) {
       dir = 0;
-      stepper.rotate(-1);
+      stepper.rotate(-2);
     }
 
     if (!(digitalRead(limit2))) {
       dir = 1;
-      stepper.rotate(1);
+      stepper.rotate(2);
     }
 
     if (!(digitalRead(sw))) {
@@ -350,21 +348,21 @@ void loop() {
     while (!TurnDetected && (digitalRead(sw)) && (digitalRead(limit1)) && (digitalRead(limit2))) {
       stepper.setRPM(rpm);
       if (dir == 0) {
-        stepper.rotate(-1);
+        stepper.rotate(-2);
       }
       else {
-        stepper.rotate(1);
+        stepper.rotate(2);
       }
     }
 
     if (!(digitalRead(limit1))) {
       dir = 0;
-      stepper.rotate(-1);
+      stepper.rotate(-2);
     }
 
     if (!(digitalRead(limit2))) {
       dir = 1;
-      stepper.rotate(1);
+      stepper.rotate(2);
     }
 
     if (!(digitalRead(sw))) {
@@ -535,14 +533,14 @@ void loop() {
     }
     while ((digitalRead(sw)) && (digitalRead(limit1))) {
       stepper.setRPM(100);
-      stepper.rotate(1);
+      stepper.rotate(2);
     }
 
     if (!(digitalRead(limit1))) {
       while ((digitalRead(limit2)) && (digitalRead(sw))) {
         minrpm = round(20/minutes);
         stepper.setRPM(minrpm);
-        stepper.rotate(-1);
+        stepper.rotate(-2);
       }
     }
 
@@ -576,14 +574,14 @@ void loop() {
     }
     while ((digitalRead(sw)) && (digitalRead(limit2))) {
       stepper.setRPM(100);
-      stepper.rotate(-1);
+      stepper.rotate(-2);
     }
 
     if (!(digitalRead(limit2))) {
       while ((digitalRead(limit1)) && (digitalRead(sw))) {
         minrpm = round(20/minutes);
         stepper.setRPM(minrpm);
-        stepper.rotate(1);
+        stepper.rotate(2);
       }
     }
 
