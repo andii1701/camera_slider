@@ -56,22 +56,23 @@ byte customChar2[8] = {
 };
 
 
-void isr0 ()  {
-  TurnDetected = true;
-  up = (digitalRead(clk) == digitalRead(dt));
-}
+
 
 void upCallback ()  {
   TurnDetected = true;
   up = true;
+  Serial.println("\nUp");
 }
 
 void downCallback ()  {
   TurnDetected = true;
   up = false;
+  Serial.println("\nDown");
 }
 
 void setup() {
+    Serial.begin(9600);
+  while (!Serial); 
   lcd.begin(16, 2);
   // Switch on the backlight
   lcd.setBacklightPin(BACKLIGHT_PIN,POSITIVE);
@@ -345,8 +346,17 @@ void loop() {
     lcd.setCursor(9, 0);
     lcd.write((uint8_t)1);
 
+    Serial.println(
+      String("Mode: ") + mode + 
+      String("TurnDetected: " ) + TurnDetected + 
+      String("SW: " ) + digitalRead(sw) + 
+      String(" LIM1: " ) + digitalRead(limit1) + 
+      String(" LIM2: " ) + digitalRead(limit2) + 
+      String(" dir: ") + String(dir) + 
+      String(" rpm: ") + String(rpm));
     while (!TurnDetected && (digitalRead(sw)) && (digitalRead(limit1)) && (digitalRead(limit2))) {
       stepper.setRPM(rpm);
+      
       if (dir == 0) {
         stepper.rotate(-2);
       }
