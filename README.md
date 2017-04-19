@@ -1,5 +1,5 @@
-# Ardiuno sketch for motorised camera slider
-Arduino sketch for a camera slider based on a NEMA17 stepper motor, ardiuno Nano, 16x2LCD and A4988 stepper driver.
+# Arduino sketch for motorised camera slider
+Arduino sketch for a camera slider based on a NEMA17 stepper motor, arduino Nano, 16x2LCD and A4988 stepper driver.
 
 This sketch is based on Great Scott's camera slider circut, but I've modified it for use with buttons as the control input rather then a rotery encoder. See Great Scott's origional camera slider and ardiuno sketch here: http://www.instructables.com/id/Make-Your-Own-Motorized-Camera-Slider/
 
@@ -17,5 +17,11 @@ Download and install the following libraries:
 
 You need to find the LCDs i2c address with a i2c scanner like http://playground.arduino.cc/Main/I2cScanner Once found add it to the 
   define I2C_ADDR <LCDs ADDRESS>
+  
+The sketch should now compile and be ready to upload to the arduino
+
+# Useful tools for debugging
+* This page has a basic A4988 stepper driver sketch to test the stepper and driver: http://howtomechatronics.com/tutorials/arduino/how-to-control-stepper-motor-with-a4988-driver-and-arduino/
+* Basic LCD Hello World! sketch for testing the LCD: https://www.arduino.cc/en/Tutorial/HelloWorld
   
 
