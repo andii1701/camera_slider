@@ -1,5 +1,5 @@
-# camera_slider
-Arduino sketch for a camera slider based on a NEMA17 stepper motor, ardiuno Nano and A4988 stepper driver.
+# Ardiuno sketch for motorised camera slider
+Arduino sketch for a camera slider based on a NEMA17 stepper motor, ardiuno Nano, 16x2LCD and A4988 stepper driver.
 
 This sketch is based on Great Scott's camera slider circut, but I've modified it for use with buttons as the control input rather then a rotery encoder. See Great Scott's origional camera slider and ardiuno sketch here: http://www.instructables.com/id/Make-Your-Own-Motorized-Camera-Slider/
 
