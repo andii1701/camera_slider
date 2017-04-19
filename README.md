@@ -11,8 +11,11 @@ https://easyeda.com/andii/MotorizedCameraSlider_copy-0b79a2839ec5450099360a282db
 # Setup
 First current limit your stepper driver http://howtomechatronics.com/tutorials/arduino/how-to-control-stepper-motor-with-a4988-driver-and-arduino/
 
-Download and install the new-liquidcrystal library https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home 
+Download and install the following libraries:
+* new-liquidcrystal https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home
+* A4988 Stepper driver library https://github.com/laurb9/StepperDriver
 
 You need to find the LCDs i2c address with a i2c scanner like http://playground.arduino.cc/Main/I2cScanner Once found add it to the 
   define I2C_ADDR <LCDs ADDRESS>
   
+
