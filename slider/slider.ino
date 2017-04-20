@@ -88,7 +88,7 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(dt), downCallback, LOW);
   mode = 0;
   arrow = 0;
-  rpm = 100;
+  rpm = 20;
   dir = 0;
   minutes = 1;
   minrpm = 100;
