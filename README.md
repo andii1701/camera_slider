@@ -22,6 +22,6 @@ The sketch should now compile and be ready to upload to the arduino
 
 # Useful tools for debugging
 * This page has a basic A4988 stepper driver sketch to test the stepper and driver: http://howtomechatronics.com/tutorials/arduino/how-to-control-stepper-motor-with-a4988-driver-and-arduino/
-* Basic LCD Hello World! sketch for testing the LCD: https://www.arduino.cc/en/Tutorial/HelloWorld
+* This Basic LCD Hello World! sketch for testing the LCD: https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home
   
 
