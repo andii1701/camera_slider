@@ -15,8 +15,8 @@ Download and install the following libraries:
 * new-liquidcrystal https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home
 * A4988 Stepper driver library https://github.com/laurb9/StepperDriver
 
-You need to find the LCDs i2c address with a i2c scanner like http://playground.arduino.cc/Main/I2cScanner Once found add it to the 
-  define I2C_ADDR <LCDs ADDRESS>
+You need to find the LCD's i2c address with a i2c scanner like http://playground.arduino.cc/Main/I2cScanner Once found add it to the 
+  `define I2C_ADDR <LCDs ADDRESS>` line
   
 The sketch should now compile and be ready to upload to the arduino
 
